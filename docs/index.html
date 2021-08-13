@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+    File: index.html
+    GUIAssignment: Implementing a Bit of Scrabble with Drag-and-Drop
+    Haley Santomas, UMass Lowell Computer Science, haley_santomas@student.uml.edu
+    Date: 8/10/2021
+    Summary: 
+-->
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Scrabble</title>
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/style.css">
+        <!-- JQuery-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    </head>
+    <body>
+        <!-- Headline -->
+        <h1>S c r a b b l e</h1>
+        <!-- The main div. -->
+        <div id="wrapper">
+            <!-- The game board. -->
+            <div id="gameBoard">
+                <!-- Tiles snap to the following slots when dragged. -->
+                <div id="snapSlot1" class="snapSlot" data-index="0"></div
+                ><div id="snapSlot2" class="snapSlot" data-index="1"></div
+                ><div id="snapSlot3" class="snapSlot" data-index="2"></div
+                ><div id="snapSlot4" class="snapSlot" data-index="3"></div
+                ><div id="snapSlot5" class="snapSlot" data-index="4"></div
+                ><div id="snapSlot6" class="snapSlot" data-index="5"></div
+                ><div id="snapSlot7" class="snapSlot" data-index="6"></div
+                ><div id="snapSlot8" class="snapSlot" data-index="7"></div
+                ><div id="snapSlot9" class="snapSlot" data-index="8"></div
+                ><div id="snapSlot10" class="snapSlot" data-index="9"></div
+                ><div id="snapSlot11" class="snapSlot" data-index="10"></div
+                ><div id="snapSlot12" class="snapSlot" data-index="11"></div
+                ><div id="snapSlot13" class="snapSlot" data-index="12"></div
+                ><div id="snapSlot14" class="snapSlot" data-index="13"></div
+                ><div id="snapSlot15" class="snapSlot" data-index="14"></div>
+            </div>
+            <!-- The score board. -->
+            <div id="scoreBoard">
+                <label class="scoreBoardLabel">Score:</label> <span id="totalScore" class="changingNumber">0</span>
+                ( <span id=baseScore class="changingNumber">0</span> x <span id="scoreMultiplier" class="changingNumber">0</span> )
+            </div>
+            <!-- The tile rack. Tiles are initially generated in this div. -->
+            <div id="tileRack">
+                <!-- This is populated with tiles using JavaScript. -->
+            </div>
+            <!-- The buttons for various game functions. -->
+            <div id="buttons">
+                <button id="newTiles" onclick="drawAllPieces(); return false;">Give Up</button>
+                <button id="submit" onclick="submit(); return false;">Submit</button>
+            </div>
+        </div>
+        
+        <!-- Javascript-->
+        <script type="text/javascript" src="javascript/Scrabble_Pieces_AssociativeArray_Jesse.js"></script>
+        <script type="text/javascript" src="javascript/script.js"></script>
+    </body>
+</html>

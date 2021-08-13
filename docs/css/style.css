@@ -1,0 +1,111 @@
+/*
+    File: style.css
+    GUIAssignment: Implementing a Bit of Scrabble with Drag-and-Drop
+    Haley Santomas, UMass Lowell Computer Science, haley_santomas@student.uml.edu
+    Date: 8/10/2021
+    Summary: 
+*/
+
+body {
+    background-color: maroon;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: Papyrus;
+    font-size: 30px;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+div#wrapper {
+    background-color: orange;
+    border-radius: 3px;
+    margin: 0 100px 100px 100px;
+    padding: 10px 0 10px 0;
+}
+
+div#gameBoard {
+    background-image: url("../graphics_data/Scrabble_Board_OneLine.png");
+    background-repeat: no-repeat;
+    height: 80px;
+    width: 1130px;
+    margin: 0 auto 10px auto;
+}
+
+div.snapSlot {
+    display: inline-block;
+    margin: 5px 0px 0px 0;
+    width: 70px;
+    height: 70px;
+    padding: 0px;
+}
+
+/* The snap slot positioning is being all funky when I try to standardize it, so I'm just manually assigning the margins to be in roughly the right spot. */
+div#snapSlot1, div#snapSlot4, div#snapSlot5, div#snapSlot6, div#snapSlot9, div#snapSlot10, div#snapSlot11, div#snapSlot12, div#snapSlot15 {
+    margin-left: 5px;
+}
+div#snapSlot2 {
+    margin-left: 3.5px;
+}
+div#snapSlot3, div#snapSlot13, div#snapSlot14 {
+    margin-left: 5.5px;
+}
+div#snapSlot7 {
+    margin-left: 4.5px;
+}
+div#snapSlot8 {
+    margin-left: 2px;
+}
+
+div#scoreBoard {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+label.scoreBoardLabel {
+    font-weight: bold;
+}
+
+span.changingNumber {
+    background-color: white;
+    padding: 2px;
+    border-radius: 2px;
+}
+
+div#tileRack {
+    background-image: url("../graphics_data/scrabble-tile-holder-406774_640.png");
+    background-repeat: no-repeat;
+    padding: 60px 0 0 50px; /* Padding to get the letters to start in the right position relative to the image. */
+    height: 130px;
+    width: 565px;
+    margin: 0 auto 0 auto;
+}
+
+img#board, img#tileHolder {
+    display: block;
+    margin: 10px auto 10px auto;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+img.letterPiece {
+    float: none;
+    width: 68px;
+    height: auto;
+    margin: 0 5px 0 5px; /* Space tiles out slightly on rack. */
+}
+
+img#TEST {
+    width: 68px;
+    height: auto;
+}
+
+div#buttons {
+    margin: 10px auto 0 auto;
+    text-align: center;
+}
