@@ -39,7 +39,6 @@ $(document).ready()
             // Add the letter to the piecesOnBoard array.
             piecesOnBoard[ parseInt($(this).attr("data-index")) ] = ui.draggable.attr("data-letter");
 
-            console.log(piecesOnRack);
             // Remove letter from piecesOnRack array.
             var tempRack = new Array();
             var removedYet = false; // Use this to make sure we only remove one element of a particular value and not multiple.
@@ -54,8 +53,8 @@ $(document).ready()
             }
             piecesOnRack = tempRack;
 
-            console.log(piecesOnRack);
-            console.log(piecesOnBoard);
+            // Mark piece as used so it can be cleared on submit.
+            //ui.draggable.addClass("usedPiece");
 
             // Make element no longer draggable.
             ui.draggable.draggable("disable");
@@ -140,7 +139,7 @@ function clearBoard()
     piecesOnBoard = new Array(BOARD_LENGTH);
 
     // Remove board pieces.
-    $("div#scoreBoard .letterPiece").remove();
+    $("img.letterPiece").remove();
 }
 
 // Shows all pieces in the piecesInRack array on the screen.
@@ -153,7 +152,7 @@ function displayPieces()
 
         pieceElements += "id='tile" + i + "' "; // Assign unique tile ID.
         
-        pieceElements += "class='letterPiece' src='../graphics_data/Scrabble_Tiles/Scrabble_Tile_"; // Class and image location.
+        pieceElements += "class='letterPiece' src='graphics_data/Scrabble_Tiles/Scrabble_Tile_"; // Class and image location.
 
         // Select the image of the letter.
         if(piecesOnRack[i] != "_")
@@ -184,6 +183,9 @@ function submit()
     // Check that word exists.
 
     // Tally up points.
+
+    // Discard pieces on board.
+    clearBoard();
 
     // Refill pieces.
     drawNPieces(MAX_NUM_PIECES - piecesOnRack.length);

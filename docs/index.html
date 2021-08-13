@@ -26,26 +26,31 @@
             <!-- The game board. -->
             <div id="gameBoard">
                 <!-- Tiles snap to the following slots when dragged. -->
-                <div id="snapSlot1" class="snapSlot" data-index="0"></div
-                ><div id="snapSlot2" class="snapSlot" data-index="1"></div
-                ><div id="snapSlot3" class="snapSlot" data-index="2"></div
-                ><div id="snapSlot4" class="snapSlot" data-index="3"></div
-                ><div id="snapSlot5" class="snapSlot" data-index="4"></div
-                ><div id="snapSlot6" class="snapSlot" data-index="5"></div
-                ><div id="snapSlot7" class="snapSlot" data-index="6"></div
-                ><div id="snapSlot8" class="snapSlot" data-index="7"></div
-                ><div id="snapSlot9" class="snapSlot" data-index="8"></div
-                ><div id="snapSlot10" class="snapSlot" data-index="9"></div
-                ><div id="snapSlot11" class="snapSlot" data-index="10"></div
-                ><div id="snapSlot12" class="snapSlot" data-index="11"></div
-                ><div id="snapSlot13" class="snapSlot" data-index="12"></div
-                ><div id="snapSlot14" class="snapSlot" data-index="13"></div
-                ><div id="snapSlot15" class="snapSlot" data-index="14"></div>
+                <div id="snapSlot1" class="snapSlot" data-index="0" data-wordMultiplier="1" data-letterMultiplier="1"></div
+                ><div id="snapSlot2" class="snapSlot" data-index="1" data-wordMultiplier="1" data-letterMultiplier="1"></div
+                ><div id="snapSlot3" class="snapSlot" data-index="2" data-wordMultiplier="2" data-letterMultiplier="1"></div
+                ><div id="snapSlot4" class="snapSlot" data-index="3" data-wordMultiplier="1" data-letterMultiplier="1"></div
+                ><div id="snapSlot5" class="snapSlot" data-index="4" data-wordMultiplier="1" data-letterMultiplier="1"></div
+                ><div id="snapSlot6" class="snapSlot" data-index="5" data-wordMultiplier="1" data-letterMultiplier="1"></div
+                ><div id="snapSlot7" class="snapSlot" data-index="6" data-wordMultiplier="1" data-letterMultiplier="2"></div
+                ><div id="snapSlot8" class="snapSlot" data-index="7" data-wordMultiplier="1" data-letterMultiplier="1"></div
+                ><div id="snapSlot9" class="snapSlot" data-index="8" data-wordMultiplier="1" data-letterMultiplier="2"></div
+                ><div id="snapSlot10" class="snapSlot" data-index="9" data-wordMultiplier="1" data-letterMultiplier="1"></div
+                ><div id="snapSlot11" class="snapSlot" data-index="10" data-wordMultiplier="1" data-letterMultiplier="1"></div
+                ><div id="snapSlot12" class="snapSlot" data-index="11" data-wordMultiplier="1" data-letterMultiplier="1"></div
+                ><div id="snapSlot13" class="snapSlot" data-index="12" data-wordMultiplier="2" data-letterMultiplier="1"></div
+                ><div id="snapSlot14" class="snapSlot" data-index="13" data-wordMultiplier="1" data-letterMultiplier="1"></div
+                ><div id="snapSlot15" class="snapSlot" data-index="14" data-wordMultiplier="1" data-letterMultiplier="1"></div>
             </div>
             <!-- The score board. -->
             <div id="scoreBoard">
-                <label class="scoreBoardLabel">Score:</label> <span id="totalScore" class="changingNumber">0</span>
-                ( <span id=baseScore class="changingNumber">0</span> x <span id="scoreMultiplier" class="changingNumber">0</span> )
+                <p>
+                    <label class="scoreBoardLabel">Word Score:</label> <span id="roundTotalScore" class="changingNumber">0</span>
+                    ( <span id="roundBaseScore" class="changingNumber">0</span> x <span id="roundScoreMultiplier" class="changingNumber">0</span> )
+                </p>
+                <p>
+                    <label class="scoreBoardLabel">Total Score:</label> <span id="totalScore" class="changingNumber">0</span>
+                </p>
             </div>
             <!-- The tile rack. Tiles are initially generated in this div. -->
             <div id="tileRack">
