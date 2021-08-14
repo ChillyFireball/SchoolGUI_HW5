@@ -50,11 +50,31 @@ $(document).ready()
                 // If this IS the piece we're removing, push if it's already been removed.
                 else if(removedYet)
                     tempRack.push(piecesOnRack[i]);
+                // If this IS the piece we're removing and it hasn't been removed yet, set removedYet to true.
+                else
+                    removedYet = true;
             }
             piecesOnRack = tempRack;
 
-            // Mark piece as used so it can be cleared on submit.
-            //ui.draggable.addClass("usedPiece");
+            // Increase score accordingly.
+
+            // Update Word Score.
+            // a) Get letter score (base letter score * this tile's multiplier).
+            var baseLetterScore = parseInt( ScrabbleTiles[ui.draggable.attr("data-letter")]["value"] );
+            var letterScore = baseLetterScore * parseInt( $(this).attr("data-letterMultiplier") );
+            var totalLetterScore = letterScore += parseInt( $("span#wordBaseScore").html() );
+
+            $("span#wordBaseScore").html(totalLetterScore);
+
+            // b) Check for word multiplier.
+            var currentMultiplier = parseInt( $("span#wordScoreMultiplier").html() );
+            currentMultiplier *= parseInt( $(this).attr("data-wordMultiplier") );
+
+            $("span#wordScoreMultiplier").html( currentMultiplier );
+
+            // c) Update word score.
+            var currentWordScore = totalLetterScore * currentMultiplier;
+            $("span#wordScore").html(currentWordScore);
 
             // Make element no longer draggable.
             ui.draggable.draggable("disable");
@@ -183,6 +203,14 @@ function submit()
     // Check that word exists.
 
     // Tally up points.
+    var totalScore = parseInt( $("span#totalScore").html() );
+    var wordScore = parseInt( $("span#wordScore").html() );
+    $("span#totalScore").html(totalScore + wordScore);
+
+    // Reset word score.
+    $("span#wordBaseScore").html(0);
+    $("span#wordScoreMultiplier").html(1);
+    $("span#wordScore").html(0);
 
     // Discard pieces on board.
     clearBoard();
