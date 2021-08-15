@@ -1,4 +1,6 @@
-LINK: https://chillyfireball.github.io/SchoolGUI_HW5/
+PAGE LINK: https://chillyfireball.github.io/SchoolGUI_HW5/
+
+REPO LINK: https://github.com/ChillyFireball/SchoolGUI_HW5
 
 ---------------------------------------------------------
 WRITE-UP
@@ -47,6 +49,8 @@ and rightmost ends of the word.
 
 -The New Game button can be used to restart the game; Total Score and tiles remaining are reset,
 and new pieces are drawn.
+
+---------------------------------------------------------
 
 EXTRA FEATURES:
 
