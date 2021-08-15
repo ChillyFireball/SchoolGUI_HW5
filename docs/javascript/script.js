@@ -56,8 +56,6 @@ $(document).ready()
             }
             piecesOnRack = tempRack;
 
-            // Increase score accordingly.
-
             // Update Word Score.
             // a) Get letter score (base letter score * this tile's multiplier).
             var baseLetterScore = parseInt( ScrabbleTiles[ui.draggable.attr("data-letter")]["value"] );
@@ -77,7 +75,37 @@ $(document).ready()
             $("span#wordScore").html(currentWordScore);
 
             // Make element no longer draggable.
-            ui.draggable.draggable("disable");
+            //ui.draggable.draggable("disable");
+
+            // Insert an identical, undraggable image into this div and delete the draggable tile.
+            var imageFileLocation = ui.draggable.attr("src");
+            $(this).html("<img src='" + imageFileLocation + "' alt='Tile' class='boardLetter'>");
+            ui.draggable.remove();
+
+            // Make it so nothing else can be dropped here.
+            $(this).droppable("option", "disabled", true);
+
+            // Disable droppability on every other droppable tile.
+            $(".snapSlot").droppable("option", "disabled", true);
+
+            // Enable droppability on indexes adjecent to the word.
+            var indexCurrent = parseInt( $(this).attr("data-index") );
+
+            var indexLeft = indexCurrent - 1;
+            while(typeof piecesOnBoard[indexLeft] != 'undefined')
+            {
+                indexLeft--;
+            }
+            var indexRight = indexCurrent + 1;
+            while(typeof piecesOnBoard[indexRight] != 'undefined')
+            {
+                indexRight++;
+            }
+            $(".snapSlot").each(function(i, obj)
+                {
+                    if(parseInt( $(obj).attr("data-index") ) == indexLeft || parseInt( $(obj).attr("data-index") ) == indexRight )
+                        $(obj).droppable("option", "disabled", false);
+                });
         }
     });
 }
@@ -160,6 +188,9 @@ function clearBoard()
 
     // Remove board pieces.
     $("img.letterPiece").remove();
+
+    // Remove HTML in snapSlot.
+    $("div.snapSlot").html("");
 }
 
 // Shows all pieces in the piecesInRack array on the screen.
@@ -190,7 +221,8 @@ function displayPieces()
         // Make draggable.
         $("img.letterPiece").draggable({
             snap: ".snapSlot",
-            snapMode: "inner"
+            snapMode: "inner",
+            revert: true
         });
     }
 }
@@ -217,4 +249,7 @@ function submit()
 
     // Refill pieces.
     drawNPieces(MAX_NUM_PIECES - piecesOnRack.length);
+
+    // Make droppable slots droppable again.
+    $(".snapSlot").droppable("option", "disabled", false);
 }

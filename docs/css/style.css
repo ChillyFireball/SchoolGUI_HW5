@@ -100,6 +100,13 @@ img.letterPiece {
     margin: 0 5px 0 5px; /* Space tiles out slightly on rack. */
 }
 
+img.boardLetter {
+    width: 68px;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
 img#TEST {
     width: 68px;
     height: auto;
