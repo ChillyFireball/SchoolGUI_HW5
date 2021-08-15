@@ -25,9 +25,6 @@ var piecesOnBoard = new Array(BOARD_LENGTH);
 /***** DOCUMENT READY *****/
 $(document).ready()
 {
-    // Draw pieces.
-    drawAllPieces();
-
     // Make droppable.
     $("div.snapSlot").droppable({
         accept: "img.letterPiece",
@@ -108,6 +105,9 @@ $(document).ready()
                 });
         }
     });
+
+    // Draw pieces.
+    drawAllPieces();
 }
 
 function getRandomIntInclusive(min, max)
@@ -123,8 +123,16 @@ function drawAllPieces()
     // Discard previous pieces if they existed.
     discardAllPieces();
 
+    // Reset word score, but leave Total Score.
+    $("span#wordScore").html("0");
+    $("span#wordBaseScore").html("0");
+    $("span#wordScoreMultiplier").html("1");
+
     // Draw 7 pieces.
     drawNPieces(MAX_NUM_PIECES);
+
+    // Make droppable slots droppable again.
+    $(".snapSlot").droppable("option", "disabled", false);
 }
 
 function drawNPieces(n)
@@ -135,6 +143,10 @@ function drawNPieces(n)
     {
         numPiecesRemaining += ScrabbleTiles[index]["number-remaining"];
     }
+
+    // If the number of pieces remaining is less than n, set n to numPiecesRemaining.
+    if(numPiecesRemaining < n)
+        n = numPiecesRemaining;
     
     // Decide which n pieces to draw.
     for(var i = 0; i < n; i++)
@@ -178,6 +190,7 @@ function discardAllPieces()
 
     // Clear all old pieces.
     $("img.letterPiece").remove();
+    $("img.boardLetter").remove();
 }
 
 // Only clears pieces on the board.
@@ -252,4 +265,20 @@ function submit()
 
     // Make droppable slots droppable again.
     $(".snapSlot").droppable("option", "disabled", false);
+}
+
+function startOver()
+{
+    // Reset remaining piecs on rack.
+    for(var index in ScrabbleTiles)
+    {
+        //numPiecesRemaining += ScrabbleTiles[index]["number-remaining"];
+        ScrabbleTiles[index]["number-remaining"] = ScrabbleTiles[index]["original-distribution"];
+    }
+
+    // Reset pieces.
+    drawAllPieces();
+
+    // Reset total score.
+    $("span#totalScore").html("0");
 }
