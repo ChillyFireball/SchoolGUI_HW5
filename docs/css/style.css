@@ -107,11 +107,6 @@ img.boardLetter {
     padding: 0;
 }
 
-img#TEST {
-    width: 68px;
-    height: auto;
-}
-
 div#buttons {
     margin: 10px auto 0 auto;
     text-align: center;
