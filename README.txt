@@ -1,8 +1,10 @@
 LINK: https://chillyfireball.github.io/SchoolGUI_HW5/
 
+---------------------------------------------------------
 WRITE-UP
+---------------------------------------------------------
 
-Implemented Features:
+MANDATORY FEATURES:
 
 -Letter tiles are randomly drawn from the Scrabble_Pieces_Associative_Array_Jessue structure.
 (Still some weird behavior when running out of tiles; see Known Issues below for details.)
@@ -46,7 +48,13 @@ and rightmost ends of the word.
 -The New Game button can be used to restart the game; Total Score and tiles remaining are reset,
 and new pieces are drawn.
 
-Known Issues:
+EXTRA FEATURES:
 
--If one attempts to draw tiles while there are no more to draw, the game
-will still select two more random tiles.
+-Button tool tips with additional explanation on their functionality.
+
+---------------------------------------------------------
+
+KNOWN ISSUES:
+
+-If one attempts to draw tiles while there are no more to draw, the game will still
+select two more random tiles.

@@ -106,6 +106,11 @@ $(document).ready()
         }
     });
 
+    // Set some tool tips for the buttons.
+    $("button#newTiles").attr("title", "Give up and draw 7 new tiles if you're stuck.");
+    $("button#submit").attr("title", "Submit the current word.");
+    $("button#startOver").attr("title", "Start a new game.");
+
     // Draw pieces.
     drawAllPieces();
 }
