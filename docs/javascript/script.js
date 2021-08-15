@@ -3,7 +3,8 @@
     GUIAssignment: Implementing a Bit of Scrabble with Drag-and-Drop
     Haley Santomas, UMass Lowell Computer Science, haley_santomas@student.uml.edu
     Date: 8/10/2021
-    Summary: 
+    Summary: The JavaScript for a Scrabble game. Full feature details are provided in the README, but to sum up, this file contains 90% of the functions that
+    make the game work, including drag-and-drop, scoring, and tile management.
 
     Sources:
         1) Scrabble_Pieces_AssociativeArray_Jesse.js
